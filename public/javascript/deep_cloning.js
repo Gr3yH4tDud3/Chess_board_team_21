@@ -1,4 +1,5 @@
 function deepClone(obj) {
+
     if (obj === null || typeof obj !== 'object') {
         return obj;
     }
@@ -9,9 +10,11 @@ function deepClone(obj) {
 
     const clonedObj = {};
     for (const key in obj) {
+
         if (Object.prototype.hasOwnProperty.call(obj, key)) {
             clonedObj[key] = deepClone(obj[key]);
         }
+        
     }
 
     return clonedObj;
@@ -20,3 +23,4 @@ function deepClone(obj) {
 // Example usage:
 // const originalObj = { a: 1, b: { c: 2 }, d: [3, 4] };
 // const clonedObj = deepClone(originalObj);
+

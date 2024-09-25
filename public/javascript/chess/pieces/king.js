@@ -7,5 +7,8 @@ var King = function(config){
 
 King.prototype = new Piece({});
 King.prototype.move = function(newPosition){
-
+    
+   console.log("I am the super Star")
+    
+    
 }
