@@ -94,6 +94,12 @@
     height: 100%;
 }
 
+.piece:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+
 .piece.selected {
     box-shadow: 0 0 10px 3px rgba(0, 255, 0, 0.7);
     transform: scale(1.1);
