@@ -3,8 +3,6 @@ var Pawn = function(config){
     this.constructor(config);
 };
 
-
-
 Pawn.prototype = new Piece({});
 
 Pawn.prototype.isValidPosition = function(targetPosition){
@@ -27,7 +25,8 @@ Pawn.prototype.isValidPosition = function(targetPosition){
             return true;
         }
     } else if (Math.abs(targetPosition.col.charCodeAt(0) - currentCol.charCodeAt(0)) === 1 &&
-               targetPosition.row === (currentRow + moveDistance).toString()) {
+               targetPosition.row === (currentRow + moveDistance).toString() && this.Board.getPieceAt(targetPosition)!=false ) {
+        console.log(this.Board.getPieceAt(targetPosition));
         // Diagonal capture (assuming there's an enemy piece, which should be checked in the main game logic)
         return true;
     }
@@ -38,9 +37,19 @@ Pawn.prototype.isValidPosition = function(targetPosition){
 }
 
 Pawn.prototype.moveTo = function(targetPosition){    
-    if(this.isValidPosition(targetPosition)){
+    console.log(targetPosition);
+    console.log("Piece is :"+this.Board.getPieceAt(targetPosition));
+    // console.log(this);
+    // console.log(this.Board.turn);
+    // console.log(this.color);
+    if(this.isValidPosition(targetPosition)&& this.Board.turn===this.color){
         this.position = targetPosition.col + targetPosition.row;
         this.render();
+        if(this.color === 'white'){
+            this.Board.turn = 'black';
+        }else{
+            this.Board.turn = 'white';
+        }
     }else{
         //NOOP
     }
