@@ -27,7 +27,6 @@ King.prototype.isValidPosition = function(targetPosition){
         if (move.col === targetPosition.col && move.row === targetPosition.row) {
             return true;
         }
-    }
 
     console.warn("Invalid move for king");
     return false;
@@ -40,5 +39,13 @@ King.prototype.moveTo = function(targetPosition){
     }else{
         
     }
-    
-}
+
+    King.prototype.moveTo = function(targetPosition){    
+        if(this.isValidPosition(targetPosition)){
+            this.position = targetPosition.col + targetPosition.row;
+            this.render();
+        }else{
+            //NOOP
+        }
+        
+    }

@@ -67,7 +67,7 @@ Board.prototype.boardClicked = function(event){
     }else{
         //update position of the selected piece to new position
         if(this.selectedPiece){
-            this.selectedPiece.moveTo(clickedCell);        
+            this.selectedPiece.moveTo(clickedCell, this);        
         }                
     }    
 }
@@ -138,7 +138,7 @@ Board.prototype.initiateGame = function() {
         bishops: [
             new Bishop({ color: 'white', position: 'C1' }),
             new Bishop({ color: 'white', position: 'F1' })
-        ],
+        ],  
         knights: [
             new Knight({ color: 'white', position: 'B1' }),
             new Knight({ color: 'white', position: 'G1' })
@@ -167,7 +167,7 @@ Board.prototype.initiateGame = function() {
             new Knight({ color: 'black', position: 'B8' }),
             new Knight({ color: 'black', position: 'G8' })
         ],
-        rooks: [
+        rooks: [    
             new Rook({ color: 'black', position: 'A8' }),
             new Rook({ color: 'black', position: 'H8' })
         ],
