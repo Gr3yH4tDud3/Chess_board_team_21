@@ -48,4 +48,7 @@ King.prototype.moveTo = function(targetPosition){
             //NOOP
         }
         
+        }
     }
+
+}
