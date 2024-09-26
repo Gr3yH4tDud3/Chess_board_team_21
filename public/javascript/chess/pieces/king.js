@@ -27,28 +27,20 @@ King.prototype.isValidPosition = function(targetPosition){
         if (move.col === targetPosition.col && move.row === targetPosition.row) {
             return true;
         }
+    }
 
     console.warn("Invalid move for king");
     return false;
 }
 
 King.prototype.moveTo = function(targetPosition){    
-    if(this.isValidPosition(targetPosition)){
+    if(this.isValidPosition(targetPosition) && this.Board.turn===this.color){
         this.position = targetPosition.col + targetPosition.row;
         this.render();
-    }else{
-        
-    }
-
-    King.prototype.moveTo = function(targetPosition){    
-        if(this.isValidPosition(targetPosition)){
-            this.position = targetPosition.col + targetPosition.row;
-            this.render();
+        if(this.color === 'white'){
+            this.Board.turn = 'black';
         }else{
-            //NOOP
-        }
-        
+            this.Board.turn = 'white';
         }
     }
-
 }
